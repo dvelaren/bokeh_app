@@ -4,6 +4,6 @@ For production, change the server_document to DNS
 
 To run:
 
-'''
+```
 python bokeh_app
-'''
+```
