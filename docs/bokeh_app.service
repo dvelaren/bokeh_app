@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve bokeh_app
+After=network.target
+
+[Service]
+User=dvelasquez
+Group=www-data
+WorkingDirectory=/home/dvelasquez/bokeh_app
+Environment="PATH=/home/dvelasquez/bokeh_app/venv/bin"
+ExecStart=/home/dvelasquez/bokeh_app/venv/bin/gunicorn --workers 4 --bind unix:bokeh_app.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
